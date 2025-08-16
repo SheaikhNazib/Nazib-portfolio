@@ -1,5 +1,5 @@
-import React, { useEffect, memo, useMemo } from "react";
-import { FileText, Code, Award, Globe, ArrowUpRight, Sparkles, UserCheck } from "lucide-react";
+import { useEffect, memo, useMemo } from "react";
+import { FileText, Code, Award, Globe, ArrowUpRight, Sparkles, Briefcase, Calendar, MapPin } from "lucide-react";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import nazib_pic from '../assets/my_pic.jpg';
@@ -27,6 +27,7 @@ const Header = memo(() => (
     </p>
   </div>
 ));
+Header.displayName = "Header";
 
 const ProfileImage = memo(() => (
   <div className="flex justify-end items-center sm:p-12 sm:py-0 sm:pb-0 p-0 py-2 pb-2">
@@ -68,6 +69,130 @@ const ProfileImage = memo(() => (
     </div>
   </div>
 ));
+ProfileImage.displayName = "ProfileImage";
+
+const ExperienceCard = memo(() => (
+  <div className="mt-16 mb-8">
+    <div className="text-center mb-8">
+      <h3
+        className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#6366f1] to-[#a855f7] mb-4"
+        data-aos="zoom-in-up"
+        data-aos-duration="600"
+      >
+        Experience
+      </h3>
+      <div className="w-24 h-1 bg-gradient-to-r from-[#6366f1] to-[#a855f7] mx-auto rounded-full"></div>
+    </div>
+    
+    <div
+      className="relative bg-gray-900/50 backdrop-blur-lg rounded-2xl p-6 sm:p-8 border border-white/10 overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl"
+      data-aos="fade-up"
+      data-aos-duration="1000"
+    >
+      {/* Background gradient */}
+      <div className="absolute -z-10 inset-0 bg-gradient-to-br from-[#6366f1]/10 to-[#a855f7]/10 opacity-50"></div>
+      
+      {/* Header */}
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6">
+        <div className="flex items-start gap-4 mb-4 sm:mb-0">
+          <div className="w-12 h-12 rounded-full flex items-center justify-center bg-gradient-to-r from-[#6366f1] to-[#a855f7] transition-transform hover:rotate-6">
+            <Briefcase className="w-6 h-6 text-white" />
+          </div>
+          <div>
+            <h4 className="text-xl sm:text-2xl font-bold text-white mb-1">
+              Associate Full Stack Developer
+            </h4>
+            <p className="text-[#a855f7] font-semibold text-lg">TutorsPlan</p>
+          </div>
+        </div>
+        
+        <div className="flex flex-col sm:items-end text-sm text-gray-400">
+          <div className="flex items-center gap-2 mb-1">
+            <Calendar className="w-4 h-4" />
+            <span>Mar 2025 – Current</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <MapPin className="w-4 h-4" />
+            <span>Dhaka, Bangladesh</span>
+          </div>
+        </div>
+      </div>
+      
+      {/* Responsibilities */}
+      <div className="space-y-4">
+        <h5 className="text-lg font-semibold text-white mb-3 flex items-center gap-2">
+          <div className="w-2 h-2 bg-gradient-to-r from-[#6366f1] to-[#a855f7] rounded-full"></div>
+          Key Responsibilities
+        </h5>
+        
+        <ul className="space-y-3 text-gray-300">
+          <li className="flex items-start gap-3 group">
+            <div className="w-1.5 h-1.5 bg-[#a855f7] rounded-full mt-2 group-hover:scale-150 transition-transform"></div>
+            <span className="text-sm sm:text-base leading-relaxed">
+              Built responsive, user-friendly interfaces using Next.js React, Tailwind CSS, and JavaScript, ensuring seamless performance across devices and browsers.
+            </span>
+          </li>
+          
+          <li className="flex items-start gap-3 group">
+            <div className="w-1.5 h-1.5 bg-[#a855f7] rounded-full mt-2 group-hover:scale-150 transition-transform"></div>
+            <span className="text-sm sm:text-base leading-relaxed">
+              Implemented reusable components and optimized page rendering to enhance user experience and maintain design consistency.
+            </span>
+          </li>
+          
+          <li className="flex items-start gap-3 group">
+            <div className="w-1.5 h-1.5 bg-[#a855f7] rounded-full mt-2 group-hover:scale-150 transition-transform"></div>
+            <span className="text-sm sm:text-base leading-relaxed">
+              Collaborated with UI/UX designers to translate Figma designs into clean, interactive frontend code with attention to detail and accessibility standards.
+            </span>
+          </li>
+          
+          <li className="flex items-start gap-3 group">
+            <div className="w-1.5 h-1.5 bg-[#a855f7] rounded-full mt-2 group-hover:scale-150 transition-transform"></div>
+            <span className="text-sm sm:text-base leading-relaxed">
+              Coordinated with backend developers to integrate APIs and manage data flow efficiently across the platforms.
+            </span>
+          </li>
+          
+          <li className="flex items-start gap-3 group">
+            <div className="w-1.5 h-1.5 bg-[#a855f7] rounded-full mt-2 group-hover:scale-150 transition-transform"></div>
+            <span className="text-sm sm:text-base leading-relaxed">
+              Contributed to the development of interactive learning experiences and browser-based educational games using modern JavaScript technologies.
+            </span>
+          </li>
+          
+          <li className="flex items-start gap-3 group">
+            <div className="w-1.5 h-1.5 bg-[#a855f7] rounded-full mt-2 group-hover:scale-150 transition-transform"></div>
+            <span className="text-sm sm:text-base leading-relaxed">
+              Actively participated in code reviews, debugging, and continuous improvement of frontend workflows using Git and agile methodologies.
+            </span>
+          </li>
+        </ul>
+      </div>
+      
+      {/* Technologies used */}
+      <div className="mt-6 pt-6 border-t border-white/10">
+        <h5 className="text-lg font-semibold text-white mb-3 flex items-center gap-2">
+          <div className="w-2 h-2 bg-gradient-to-r from-[#6366f1] to-[#a855f7] rounded-full"></div>
+          Technologies
+        </h5>
+        <div className="flex flex-wrap gap-2">
+          {['Next.js', 'React', 'Tailwind CSS', 'JavaScript', 'Figma', 'Git', 'APIs'].map((tech) => (
+            <span
+              key={tech}
+              className="px-3 py-1 bg-white/10 rounded-full text-sm text-gray-300 border border-white/20 hover:bg-white/20 transition-colors"
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+));
+ExperienceCard.displayName = "ExperienceCard";
+
+import PropTypes from "prop-types";
 
 const StatCard = memo(({ icon: Icon, color, value, label, description, animation }) => (
   <div data-aos={animation} data-aos-duration={1300} className="relative group">
@@ -112,6 +237,17 @@ const StatCard = memo(({ icon: Icon, color, value, label, description, animation
     </div>
   </div>
 ));
+
+StatCard.displayName = "StatCard";
+
+StatCard.propTypes = {
+  icon: PropTypes.elementType.isRequired,
+  color: PropTypes.string.isRequired,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  label: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  animation: PropTypes.string.isRequired,
+};
 
 const AboutPage = () => {
   // Memoized calculations
@@ -160,7 +296,7 @@ const AboutPage = () => {
     {
       icon: Code,
       color: "from-[#6366f1] to-[#a855f7]",
-      value: totalProjects,
+      value: "6+",
       label: "Total Projects",
       description: "Innovative web solutions crafted",
       animation: "fade-right",
@@ -168,7 +304,7 @@ const AboutPage = () => {
     {
       icon: Award,
       color: "from-[#a855f7] to-[#6366f1]",
-      value: totalCertificates,
+      value: "contact me...",
       label: "Certificates",
       description: "Professional skills validated",
       animation: "fade-up",
@@ -176,7 +312,7 @@ const AboutPage = () => {
     {
       icon: Globe,
       color: "from-[#6366f1] to-[#a855f7]",
-      value: YearExperience,
+      value: "0.5 years",
       label: "Years of Experience",
       description: "Continuous learning journey",
       animation: "fade-left",
@@ -199,7 +335,7 @@ const AboutPage = () => {
               data-aos-duration="1000"
             >
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#6366f1] to-[#a855f7]">
-                Hello, I'm
+                Hello, I&#39;m
               </span>
               <span
                 className="block mt-2 text-gray-200"
@@ -222,7 +358,7 @@ const AboutPage = () => {
             </p>
 
             <div className="flex flex-col lg:flex-row items-center lg:items-start gap-4 lg:gap-4 lg:px-0 w-full">
-              <a href="https://drive.google.com/drive/folders/1BOm51Grsabb3zj6Xk27K-iRwI1zITcpo" className="w-full lg:w-auto">
+              <a href="https://drive.google.com/drive/folders/1I8gj9Xb7rmTyT5y9-ymj15JPAB3brZpb?usp=sharing" className="w-full lg:w-auto">
                 <button
                   data-aos="fade-up"
                   data-aos-duration="800"
@@ -246,6 +382,8 @@ const AboutPage = () => {
           <ProfileImage />
         </div>
 
+        <ExperienceCard />
+
         <a href="#Portofolio">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16 cursor-pointer">
             {statsData.map((stat) => (
@@ -255,7 +393,7 @@ const AboutPage = () => {
         </a>
       </div>
 
-      <style jsx>{`
+      <style>{`
         @keyframes float {
           0%, 100% { transform: translateY(0); }
           50% { transform: translateY(-20px); }

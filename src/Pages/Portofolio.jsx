@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import SwipeableViews from "react-swipeable-views";
 import { useTheme } from "@mui/material/styles";
@@ -9,7 +9,7 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import CardProject from "../components/CardProject"; // Make sure this is a valid import
 import TechStackIcon from "../components/TechStackIcon";
-import { Code, Award, Boxes } from "lucide-react";
+import { Code, Boxes } from "lucide-react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import nsu_overclock from "../assets/nsu_overclock.png"
@@ -18,8 +18,8 @@ import traffic_sign from "../assets/traffic_sign.jpg"
 import community_center from "../assets/community_center.jpg"
 import temp from "../assets/temp_hum.png"
 import school from "../assets/school.jpg"
+import coffee from "../assets/coffee.jpg"
 import "aos/dist/aos.css";
-
 
 const ToggleButton = ({ onClick, isShowingMore }) => (
   <button
@@ -42,9 +42,8 @@ const ToggleButton = ({ onClick, isShowingMore }) => (
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
-        className={`transition-transform duration-300 ${
-          isShowingMore ? "group-hover:-translate-y-0.5" : "group-hover:translate-y-0.5"
-        }`}
+        className={`transition-transform duration-300 ${isShowingMore ? "group-hover:-translate-y-0.5" : "group-hover:translate-y-0.5"
+          }`}
       >
         <polyline points={isShowingMore ? "18 15 12 9 6 15" : "6 9 12 15 18 9"}></polyline>
       </svg>
@@ -52,6 +51,11 @@ const ToggleButton = ({ onClick, isShowingMore }) => (
     <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-purple-500/50 transition-all duration-300 group-hover:w-full"></span>
   </button>
 );
+
+ToggleButton.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  isShowingMore: PropTypes.bool.isRequired,
+};
 
 function TabPanel({ children, value, index, ...other }) {
   return (
@@ -107,7 +111,7 @@ const projects = [
     Title: "Traffic Sign Recognition and Classification",
     Description:
       "Implemented a deep learning model using Convolutional Neural Networks (CNN) to recognize and classify traffic signs. Trained the model on the GTSRB dataset with PyTorch, achieving over 95% accuracy. Optimized the model to reduce processing time and enhance performance.",
-    Link: "#", // Add the project link if available
+    Link: "https://github.com/SheaikhNazib/TRAFFIC-SIGN-RECOGNITION-AND-CLASSIFICATION-WITH-CNN", // Add the project link if available
   },
   {
     id: 4,
@@ -115,7 +119,7 @@ const projects = [
     Title: "Community Center Management System",
     Description:
       "Built a platform for booking community centers, offering customizable food packages, date selection, and billing. Developed using Java, ensuring a seamless user experience.",
-    Link: "#", // Add the project link if available
+    Link: "https://github.com/SheaikhNazib/Community-Center-Booking-System", // Add the project link if available
   },
   {
     id: 5,
@@ -123,15 +127,23 @@ const projects = [
     Title: "Temperature and Humidity Monitoring System",
     Description:
       "Designed an embedded system using STM32F103C8T6 microcontroller and integrated a DHT11 sensor. Developed firmware using STMCubeMX for real-time data display and alerts for high temperatures (>35°C). Built a functional interface for monitoring temperature and humidity levels.",
-    Link: "#", // Add the project link if available
+    Link: "https://github.com/SheaikhNazib/TEMPERATURE-AND-HUMIDITY-MONITORING-SYSTEM", // Add the project link if available
   },
   {
     id: 6,
+    Img: coffee, // Replace with actual image link
+    Title: "Espresso Emporium Coffee Cart",
+    Description:
+      "Developed a dynamic web platform, Espresso Emporium Coffee Cart, using the MERN stack (MongoDB, Express.js, React, and Node.js). The system includes both admin and user panels, allowing seamless management of products, orders, and user interactions. Designed an intuitive and responsive interface to enhance the user experience, ensuring efficient operation for both customers and administrators.",
+    Link: "https://coffee-store-c1607.web.app/", // Add the project link if available
+  },
+  {
+    id: 7,
     Img: school, // Replace with actual image link
     Title: "School Management System",
     Description:
       "Developed a platform for storing school information and calculating student results. Built with HTML, CSS, PHP, and MySQL to ensure smooth data management. Implemented a user-friendly interface for teachers and administrators",
-    Link: "#", // Add the project link if available
+    Link: "https://github.com/SheaikhNazib/CSE311-Project---School-Management-System-Project", // Add the project link if available
   },
 ];
 
@@ -139,9 +151,15 @@ const techStacks = [
   { icon: "html.svg", language: "HTML" },
   { icon: "css.svg", language: "CSS" },
   { icon: "javascript.svg", language: "JavaScript" },
+  { icon: "java.png", language: "Java" },
   { icon: "reactjs.svg", language: "ReactJS" },
+  { icon: "unreal.png", language: "Unreal Engine" },
   { icon: "firebase.svg", language: "Firebase" },
-  { icon: "MUI.svg", language: "Material UI" },
+  { icon: "vite.svg", language: "Vite" },
+  { icon: "bootstrap.svg", language: "Bootstrap" },
+  { icon: "tailwind.svg", language: "Tailwind" },
+  { icon: "blender.png", language: "Blender" },
+  { icon: "github.svg", language: "Github" },
 ];
 
 export default function FullWidthTabs() {
@@ -159,17 +177,17 @@ export default function FullWidthTabs() {
 
   useEffect(() => {
     AOS.init({
-        once: false, // Animation runs every time the element enters the viewport
-        duration: 1000,
+      once: false, // Animation runs every time the element enters the viewport
+      duration: 1000,
     });
     AOS.refresh(); // Ensures it refreshes all AOS elements
-}, []);
+  }, []);
 
   return (
     <div className="md:px-[10%] px-[5%] w-full sm:mt-0 mt-[3rem] bg-[#030014] overflow-hidden" id="Portfolio" >
       <div className="text-center pb-10" data-aos="fade-up" data-aos-duration="2000">
         <h2 className="inline-block text-3xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#6366f1] to-[#a855f7]">
-          Portfolio Showcase
+          Portfolio Showcase  
         </h2>
         <p className="text-slate-400 max-w-2xl mx-auto text-sm md:text-base mt-2">
           Explore my journey through projects and technical expertise. Each section represents a milestone in my continuous learning path.
@@ -181,14 +199,14 @@ export default function FullWidthTabs() {
           <Tabs
             value={value}
             onChange={handleChange}
-            textColor="secondary"
+            textColor="white"
             indicatorColor="secondary"
             variant="fullWidth"
             className="text-slate-400"
             data-aos="fade-up" data-aos-duration="2000"
           >
-            <Tab icon={<Code />} label="Projects" {...a11yProps(0)}/>
-            <Tab icon={<Boxes />} label="Tech Stack" {...a11yProps(1)}/>
+            <Tab icon={<Code />} label="Projects" {...a11yProps(0)} />
+            <Tab icon={<Boxes />} label="Tech Stack" {...a11yProps(1)} />
           </Tabs>
         </AppBar>
 
