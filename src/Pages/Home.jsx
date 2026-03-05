@@ -1,9 +1,10 @@
 import { useState, useEffect, useCallback, memo } from "react"
 import { Github, Linkedin, Mail, ExternalLink, Instagram, Sparkles } from "lucide-react"
-import { DotLottieReact } from '@lottiefiles/dotlottie-react'
+// Removed DotLottieReact import; using hero GIF instead
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import { GitHub } from "@mui/icons-material"
+import { DotLottieReact } from '@lottiefiles/dotlottie-react'
 
 // Memoized Components
 const StatusBadge = memo(() => (
@@ -142,21 +143,8 @@ const Home = () => {
     return () => clearTimeout(timeout);
   }, [handleTyping]);
 
-  // Lottie configuration
-  const lottieOptions = {
-    src: "https://lottie.host/58753882-bb6a-49f5-a2c0-950eda1e135a/NLbpVqGegK.lottie",
-    loop: true,
-    autoplay: true,
-    rendererSettings: {
-      preserveAspectRatio: 'xMidYMid slice',
-      progressiveLoad: true,
-    },
-    style: { width: "100%", height: "100%" },
-    className: `w-full h-full transition-all duration-500 ${isHovering
-      ? "scale-[180%] sm:scale-[160%] md:scale-[150%] lg:scale-[145%] rotate-2"
-      : "scale-[175%] sm:scale-[155%] md:scale-[145%] lg:scale-[140%]"
-      }`
-  };
+  // Use Lottie/JSON animation from public folder (smaller sizes + gentle hover)
+  const animationClass = `w-[420px] sm:w-[520px] md:w-[680px] lg:w-[820px] max-w-full h-auto object-contain transform transition-all duration-500 ${isHovering ? 'scale-105 rotate-3' : 'scale-100 rotate-0'}`
 
   return (
     <div className="min-h-screen bg-[#030014] overflow-hidden" id="Home">
@@ -209,7 +197,7 @@ const Home = () => {
             </div>
 
             {/* Right Column - Optimized Lottie Animation */}
-            <div className="w-full py-[10%] sm:py-0 lg:w-1/2 h-auto lg:h-[600px] xl:h-[750px] relative flex items-center justify-center order-2 lg:order-2 mt-8 lg:mt-0"
+            <div className="w-full py-[10%] sm:py-0 lg:w-1/2 h-auto lg:h-[800px] xl:h-[1000px] relative flex items-center justify-center order-2 lg:order-2 mt-8 lg:mt-0"
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
               data-aos="fade-left"
@@ -219,9 +207,13 @@ const Home = () => {
                   }`}>
                 </div>
 
-                <div className={`relative z-10 w-full opacity-90 transform transition-transform duration-500 ${isHovering ? "scale-105" : "scale-100"
-                  }`}>
-                  <DotLottieReact {...lottieOptions} />
+                <div className={`relative z-10 w-full opacity-90`}> 
+                  <DotLottieReact
+                    src="/Programming.json"
+                    autoplay
+                    loop
+                    className={animationClass}
+                  />
                 </div>
 
                 <div className={`absolute inset-0 pointer-events-none transition-all duration-700 ${isHovering ? "opacity-50" : "opacity-20"

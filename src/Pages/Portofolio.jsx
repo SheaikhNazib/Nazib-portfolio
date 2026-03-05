@@ -187,7 +187,7 @@ export default function FullWidthTabs() {
     <div className="md:px-[10%] px-[5%] w-full sm:mt-0 mt-[3rem] bg-[#030014] overflow-hidden" id="Portfolio" >
       <div className="text-center pb-10" data-aos="fade-up" data-aos-duration="2000">
         <h2 className="inline-block text-3xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#6366f1] to-[#a855f7]">
-          Portfolio Showcase  
+          Portfolio Showcase
         </h2>
         <p className="text-slate-400 max-w-2xl mx-auto text-sm md:text-base mt-2">
           Explore my journey through projects and technical expertise. Each section represents a milestone in my continuous learning path.
@@ -203,7 +203,7 @@ export default function FullWidthTabs() {
             indicatorColor="secondary"
             variant="fullWidth"
             className="text-slate-400"
-            data-aos="fade-up" data-aos-duration="2000"
+            
           >
             <Tab icon={<Code />} label="Projects" {...a11yProps(0)} />
             <Tab icon={<Boxes />} label="Tech Stack" {...a11yProps(1)} />

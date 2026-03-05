@@ -304,7 +304,7 @@ const AboutPage = () => {
     {
       icon: Award,
       color: "from-[#a855f7] to-[#6366f1]",
-      value: "contact me...",
+      value: "Contact for details",
       label: "Certificates",
       description: "Professional skills validated",
       animation: "fade-up",
@@ -312,7 +312,7 @@ const AboutPage = () => {
     {
       icon: Globe,
       color: "from-[#6366f1] to-[#a855f7]",
-      value: "0.5 years",
+      value: "1+ years",
       label: "Years of Experience",
       description: "Continuous learning journey",
       animation: "fade-left",
