@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import SwipeableViews from "react-swipeable-views";
 import { useTheme } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Tabs from "@mui/material/Tabs";
@@ -210,28 +209,26 @@ export default function FullWidthTabs() {
           </Tabs>
         </AppBar>
 
-        <SwipeableViews axis={theme.direction === "rtl" ? "x-reverse" : "x"} index={value} onChangeIndex={setValue} >
-          <TabPanel value={value} index={0} dir={theme.direction}>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" data-aos="fade-left" data-aos-duration="2000">
-              {displayedProjects.map((project) => (
-                <CardProject key={project.id} {...project} />
-              ))}
+        <TabPanel value={value} index={0} dir={theme.direction}>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" data-aos="fade-left" data-aos-duration="2000">
+            {displayedProjects.map((project) => (
+              <CardProject key={project.id} {...project} />
+            ))}
+          </div>
+          {projects.length > initialItems && (
+            <div className="mt-6 w-full flex justify-start">
+              <ToggleButton onClick={() => setShowAllProjects(!showAllProjects)} isShowingMore={showAllProjects} />
             </div>
-            {projects.length > initialItems && (
-              <div className="mt-6 w-full flex justify-start">
-                <ToggleButton onClick={() => setShowAllProjects(!showAllProjects)} isShowingMore={showAllProjects} />
-              </div>
-            )}
-          </TabPanel>
+          )}
+        </TabPanel>
 
-          <TabPanel value={value} index={1} dir={theme.direction}>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5">
-              {techStacks.map((stack, index) => (
-                <TechStackIcon key={index} TechStackIcon={stack.icon} Language={stack.language} />
-              ))}
-            </div>
-          </TabPanel>
-        </SwipeableViews>
+        <TabPanel value={value} index={1} dir={theme.direction}>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5">
+            {techStacks.map((stack, index) => (
+              <TechStackIcon key={index} TechStackIcon={stack.icon} Language={stack.language} />
+            ))}
+          </div>
+        </TabPanel>
       </Box>
     </div>
   );
